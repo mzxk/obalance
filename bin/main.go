@@ -15,9 +15,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	balance = obalance.NewLocal("127.0.0.1:6379", "")
+	balance = obalance.NewLocal(os.Args[1], os.Args[2])
 	obalance.InitScript(balance.Rds)
-	listen, err := net.Listen("tcp", "0.0.0.0"+os.Args[1])
+	listen, err := net.Listen("tcp", "0.0.0.0"+os.Args[3])
 	if err != nil {
 		panic(err)
 	}
